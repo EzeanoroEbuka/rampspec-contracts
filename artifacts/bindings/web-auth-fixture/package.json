@@ -24,7 +24,7 @@
   ],
   "rampspec": {
     "generator": "stellar-cli 27.1.0",
-    "specSha256": "55b76eecb8cbc954c990b813cbf044f460d838dc00b9887a2236d20688cee73a",
-    "wasmSha256": "a08b539352f37ebb428cfa085241bd19b99578c17d08268d59a2edab77cf9b06"
+    "specSha256": "3d16aa1cc8c52f29837f0084bfd7a02d23d9e5c0e1ecb0f8037c8d2ef48aefd2",
+    "wasmSha256": "dad7e422c627add8a4ce5cb59cdb0c52191baf23fe26fd3f349d29fcd741c8f1"
   }
 }

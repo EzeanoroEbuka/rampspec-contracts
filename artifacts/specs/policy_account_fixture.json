@@ -408,6 +408,11 @@
           "doc": "",
           "name": "UpgradeNotAllowed",
           "value": 15
+        },
+        {
+          "doc": "",
+          "name": "AdminProposalExpired",
+          "value": 16
         }
       ],
       "doc": "",
@@ -1095,6 +1100,12 @@
           "void_v0": {
             "doc": "",
             "name": "PendingAdmin"
+          }
+        },
+        {
+          "void_v0": {
+            "doc": "",
+            "name": "PendingAdminDeadline"
           }
         },
         {

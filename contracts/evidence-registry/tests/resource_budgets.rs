@@ -109,6 +109,72 @@ fn maximum_valid_supersession_walk_stays_within_reviewed_budget() {
 }
 
 #[test]
+fn long_replacement_chain_stays_within_reviewed_budget() {
+    let (env, contract_id, publisher) = setup();
+    let client = EvidenceRegistryClient::new(&env, &contract_id);
+    let current = client.publish_evidence(&input(&env, &publisher, 1));
+    let replacement = input(&env, &publisher, 2);
+    let replacement_id = evidence_id(
+        &env,
+        &replacement.publisher,
+        &replacement.report_hash,
+        &replacement.network,
+    );
+    env.as_contract(&contract_id, || {
+        let mut cursor = replacement_id;
+        for marker in 1..=24_u8 {
+            let next = BytesN::from_array(&env, &[100 + marker; 32]);
+            env.storage()
+                .persistent()
+                .set(&PersistentKeyV1::SupersededBy(cursor), &next);
+            cursor = next;
+        }
+    });
+    env.cost_estimate().budget().reset_tracker();
+
+    client.supersede_evidence(&current, &replacement, &publisher);
+
+    let resources = env.cost_estimate().resources();
+    assert!(resources.instructions <= 1_250_000);
+    assert!(resources.mem_bytes <= 140_000);
+    assert!(resources.memory_read_entries <= 40);
+    assert!(resources.write_entries <= 7);
+}
+
+#[test]
+fn revoked_evidence_maintenance_stays_within_reviewed_budget() {
+    let (env, contract_id, publisher) = setup();
+    let client = EvidenceRegistryClient::new(&env, &contract_id);
+    let id = client.publish_evidence(&input(&env, &publisher, 1));
+    client.revoke_evidence(&id, &BytesN::from_array(&env, &[8; 32]), &publisher);
+
+    env.ledger().set_sequence_number(1_500_000);
+    client.set_paused(&false);
+    env.ledger().set_sequence_number(2_600_000);
+    env.cost_estimate().budget().reset_tracker();
+
+    client.maintain_evidence(&id);
+
+    assert_budget(&env, 10_000_000, 8_000_000);
+}
+
+#[test]
+fn maximum_supersession_chain_maintenance_stays_within_reviewed_budget() {
+    let (env, contract_id, publisher) = setup();
+    let client = EvidenceRegistryClient::new(&env, &contract_id);
+    let mut current = client.publish_evidence(&input(&env, &publisher, 1));
+    let first = current.clone();
+    for marker in 2..=24 {
+        current = client.supersede_evidence(&current, &input(&env, &publisher, marker), &publisher);
+    }
+    env.cost_estimate().budget().reset_tracker();
+
+    client.maintain_supersession_chain(&first);
+
+    assert_budget(&env, 80_000_000, 64_000_000);
+}
+
+#[test]
 fn successful_evidence_read_extends_only_instance_ttl_within_budget() {
     let (env, contract_id, publisher) = setup();
     let client = EvidenceRegistryClient::new(&env, &contract_id);
