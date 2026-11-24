@@ -7,4 +7,4 @@ const client = new Client({
   networkPassphrase: "Standalone Network ; February 2017",
   rpcUrl: "http://127.0.0.1:8000",
 });
-assert.deepEqual(Object.keys(client.fromJSON).sort(), ["accept_admin","cancel_admin_transfer","get_attestor","get_evidence","initialize","is_active","maintain_attestor","maintain_evidence","propose_admin","publish_evidence","register_attestor","revoke_evidence","schema_version","set_attestor_enabled","set_paused","supersede_evidence","upgrade"]);
+assert.deepEqual(Object.keys(client.fromJSON).sort(), ["accept_admin","cancel_admin_transfer","get_attestor","get_evidence","initialize","is_active","maintain_attestor","maintain_evidence","maintain_supersession_chain","propose_admin","publish_evidence","register_attestor","revoke_evidence","schema_version","set_attestor_enabled","set_paused","supersede_evidence","upgrade"]);

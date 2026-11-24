@@ -3,30 +3,30 @@
   "contracts": {
     "evidence-registry": {
       "json": "evidence_registry.json",
-      "jsonSha256": "adf17acbe5efff9008700ce9e9e50cb07a259559424c3570c23e948f013fab3a",
-      "sourceSha256": "8bad57c11af42f9730c7d735bf1f3ae35eedefd21928b0e903eed3c6c44756fc",
+      "jsonSha256": "bdd4826893b8c637e22c8d595a1ab60b2ae239d65e9695fb4b11539a23eecf24",
+      "sourceSha256": "881156977613a6eb69d0b192dcbfaab0564c3ec0f04af4cf777645ebc8ca3a1c",
       "wasm": "evidence_registry.wasm",
-      "wasmSha256": "293b8dfd5cb59bfc8771ad99d7f48832575a31c5694944204f1a29f6634f27a8",
+      "wasmSha256": "47ce4af632282bd2f13c580f06842328efd476c2d9c4828c450097bcb2b7bb4d",
       "xdr": "evidence_registry.xdr-base64",
-      "xdrSha256": "36f7e27d6f0378917e6468780daba6f23038e0a48d817189c1e33a989102bc5f"
+      "xdrSha256": "0e1f349e46082ebe6c0cbabbe7cabf535427e4dfa276750c29153ab7be61a2cd"
     },
     "policy-account-fixture": {
       "json": "policy_account_fixture.json",
-      "jsonSha256": "9dbb7f32283a84ce062f376816a88fad40128ccdbd7eda7158265ab1e3c69f4c",
-      "sourceSha256": "c1daa6ba131ced80ada358c1ec91dd6351dccbaef3a85924c0f364329f4d452d",
+      "jsonSha256": "bea3703f96f62a10b063a29050e7cb1ee7bd48dbd556d4da2bcd8dadc74405e5",
+      "sourceSha256": "e20c06b2ff0d41286b2b17cdb965461c334aa9e53a46074212af5db63672a48b",
       "wasm": "policy_account_fixture.wasm",
-      "wasmSha256": "c3619424de8b3a01d223ab10b706d236dbd8502c053001c4bc3ece4fd088d86b",
+      "wasmSha256": "ee1ab90a49758ff81e052f2882c3a74fef557229a09d2887fa0748722513f036",
       "xdr": "policy_account_fixture.xdr-base64",
-      "xdrSha256": "c2a6a241ab895ec62035cdbae54ab9f7ef7cce0989f5d6b543fcb5a97124ff36"
+      "xdrSha256": "fdfd04f01e82fc8fa7014f430cc087c611b17b0c2b0cfa644ff9861b2724ee4f"
     },
     "web-auth-fixture": {
       "json": "web_auth_fixture.json",
-      "jsonSha256": "55b76eecb8cbc954c990b813cbf044f460d838dc00b9887a2236d20688cee73a",
-      "sourceSha256": "71d8bcc3fe8d631f052d3de72ae3f379ac04d9f8705469676d7636e97d80470b",
+      "jsonSha256": "3d16aa1cc8c52f29837f0084bfd7a02d23d9e5c0e1ecb0f8037c8d2ef48aefd2",
+      "sourceSha256": "ae7ab395a37941ee95e58558a1a11a82dfa84b09ac902e943bf0dbcedcd29cfe",
       "wasm": "web_auth_fixture.wasm",
-      "wasmSha256": "a08b539352f37ebb428cfa085241bd19b99578c17d08268d59a2edab77cf9b06",
+      "wasmSha256": "dad7e422c627add8a4ce5cb59cdb0c52191baf23fe26fd3f349d29fcd741c8f1",
       "xdr": "web_auth_fixture.xdr-base64",
-      "xdrSha256": "5bf92009c841c052f4551f43622aaba71d6f52572ee69bbbabbce38bda7f7924"
+      "xdrSha256": "a71b1e367a4a61b8585cf7ef44c68cf46a3bc70394431f2f2d8f303bba6e8ba2"
     }
   },
   "generator": "stellar-cli 27.1.0",
